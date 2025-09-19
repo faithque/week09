@@ -72,7 +72,7 @@ services:
   # Product Microservice (FastAPI)
   product_service:
     build:
-      context: ./example-3/backend/product_service
+      context: ./example-3/backend/product_Service
       dockerfile: Dockerfile
     container_name: product_api_container
     image: week09_example02_product_service:latest

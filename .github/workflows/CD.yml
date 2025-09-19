@@ -34,7 +34,7 @@ jobs:
           docker build -t ${{ secrets.ACR_NAME }}.azurecr.io/product_service:latest ./example-3/backend/product_Service
           docker push ${{ secrets.ACR_NAME }}.azurecr.io/product_service:latest
 
-          docker build -t ${{ secrets.ACR_NAME }}.azurecr.io/order_service:latest ./example-3/backend/order_Service
+          docker build -t ${{ secrets.ACR_NAME }}.azurecr.io/order_service:latest ./example-3/backend/order_service
           docker push ${{ secrets.ACR_NAME }}.azurecr.io/order_service:latest
 
 
