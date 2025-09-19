@@ -24,6 +24,11 @@ jobs:
         run: |
           az acr login --name ${{ secrets.ACR_NAME }}
 
+      - name: List repo contents
+        run: |
+          pwd
+          ls -R
+
       - name: Build and Push Backend Images
         run: |
           docker build -t ${{ secrets.ACR_NAME }}.azurecr.io/product_service:latest ./example-3/backend/product_service
