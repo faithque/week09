@@ -24,12 +24,14 @@ jobs:
         run: |
           az acr login --name ${{ secrets.ACR_NAME }}
 
-      - name: Build and Push Backend Image
+      - name: Build and Push Backend Images
         run: |
           docker build -t ${{ secrets.ACR_NAME }}.azurecr.io/product_service:latest ./example-3/backend/product_service
           docker push ${{ secrets.ACR_NAME }}.azurecr.io/product_service:latest
-          docker build -t ${{ secrets.ACR_NAME }}.azurecr.io/order_service:latest ./example-3/backend/product_service
+
+          docker build -t ${{ secrets.ACR_NAME }}.azurecr.io/order_service:latest ./example-3/backend/order_service
           docker push ${{ secrets.ACR_NAME }}.azurecr.io/order_service:latest
+
 
       - name: Build and Push Frontend Image
         run: |
