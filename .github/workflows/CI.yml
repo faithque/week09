@@ -17,7 +17,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Start services with Docker Compose
-        run: docker compose -f week09/example-3/docker-compose.yml up -d --build
+        run: docker compose -f ./example-3/docker-compose.yml up -d --build
 
       - name: Wait for DB
         run: sleep 20
@@ -26,4 +26,4 @@ jobs:
         run: docker exec product_api_container pytest /app/tests
 
       - name: Tear down
-        run: docker compose -f week09/example-3/docker-compose.yml down -v
+        run: docker compose -f ./example-3/docker-compose.yml down -v
