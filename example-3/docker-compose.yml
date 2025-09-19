@@ -72,7 +72,7 @@ services:
   # Product Microservice (FastAPI)
   product_service:
     build:
-      context: ./backend/product_service
+      context: ./example-3/backend/product_service
       dockerfile: Dockerfile
     container_name: product_api_container
     image: week09_example02_product_service:latest
@@ -89,12 +89,12 @@ services:
       product_db:
         condition: service_healthy
     volumes:
-      - ./backend/product_service/app:/app
+      - ./example-3/backend/product_service/app:/app
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000
 
   order_service:
     build:
-      context: ./backend/order_service
+      context: ./example-3/backend/order_service
       dockerfile: Dockerfile
     image: week09_example02_order_service:latest
     container_name: order_api_container
@@ -110,12 +110,12 @@ services:
       product_service:
         condition: service_started
     volumes:
-      - ./backend/order_service/app:/app
+      - ./example-3/backend/order_service/app:/app
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000
 
   frontend:
     build:
-      context: ./frontend
+      context: ./example-3/frontend
       dockerfile: Dockerfile
     image: week09_example02_frontend:latest
     container_name: product_order_frontend
@@ -128,7 +128,7 @@ services:
       order_service:
         condition: service_started
     volumes:
-      - ./frontend:/usr/share/nginx/html
+      - ./example-3/frontend:/usr/share/nginx/html
 
 volumes:
   product_db_data:

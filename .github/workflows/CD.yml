@@ -26,12 +26,14 @@ jobs:
 
       - name: Build and Push Backend Image
         run: |
-          docker build -t ${{ secrets.ACR_NAME }}.azurecr.io/product_service:latest ./backend/product_service
+          docker build -t ${{ secrets.ACR_NAME }}.azurecr.io/product_service:latest ./example-3/backend/product_service
           docker push ${{ secrets.ACR_NAME }}.azurecr.io/product_service:latest
+          docker build -t ${{ secrets.ACR_NAME }}.azurecr.io/orderservice:latest ./example-3/backend/product_service
+          docker push ${{ secrets.ACR_NAME }}.azurecr.io/order_service:latest
 
       - name: Build and Push Frontend Image
         run: |
-          docker build -t ${{ secrets.ACR_NAME }}.azurecr.io/frontend:latest ./frontend
+          docker build -t ${{ secrets.ACR_NAME }}.azurecr.io/frontend:latest ./example-3/frontend
           docker push ${{ secrets.ACR_NAME }}.azurecr.io/frontend:latest
 
       - name: Get AKS credentials
