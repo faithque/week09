@@ -57,11 +57,3 @@ data:
       - job_name: 'prometheus'
         static_configs:
           - targets: ['localhost:9090']
-
-      - job_name: 'product-service'
-        static_configs:
-          - targets: ['product_service:8000']
-
-      - job_name: 'order-service'
-        static_configs:
-          - targets: ['order_service:8000']
