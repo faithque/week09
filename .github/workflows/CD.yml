@@ -52,12 +52,4 @@ jobs:
       - name: Deploy to AKS
         run: |
           
-          kubectl apply -f ./example-3/k8s/prometheus-deployment.yaml
-          kubectl apply -f ./example-3/k8s/prometheus-rbac.yaml
-          kubectl apply -f ./example-3/k8s/grafana-deployment.yaml
-          kubectl apply -f ./example-3/k8s/product-db.yaml
-          kubectl apply -f ./example-3/k8s/order-db.yaml
-          kubectl apply -f ./example-3/k8s/product-service.yaml
-          kubectl apply -f ./example-3/k8s/order-service.yaml
-          kubectl apply -f ./example-3/k8s/frontend-service.yaml
-          kubectl apply -f ./example-3/prometheus/prometheus.yml
+          kubectl apply -f ./example-3/k8s
