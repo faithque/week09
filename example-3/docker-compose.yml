@@ -89,7 +89,7 @@ services:
       product_db:
         condition: service_healthy
     volumes:
-      - ./example-3/backend/product_service/app:/app
+      - ./example-3/backend/product_Service/app:/app
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000
 
   order_service:
