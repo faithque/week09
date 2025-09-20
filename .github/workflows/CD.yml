@@ -47,9 +47,8 @@ jobs:
         run: |
           az aks get-credentials \
             --resource-group ${{ secrets.RESOURCE_GROUP }} \
-            --name ${{ secrets.AKS_CLUSTER }} \
-            --overwrite-existing
-            
+            --name ${{ secrets.AKS_CLUSTER }} 
+
       - name: Deploy to AKS
         run: |
           
