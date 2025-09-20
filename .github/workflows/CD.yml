@@ -27,8 +27,8 @@ jobs:
       - name: Update frontend API endpoints for AKS
         run: |
           # Replace localhost URLs with Kubernetes service names or LoadBalancer IPs
-          sed -i "s|http://localhost:8000|http://product-service-w09-aks:8000|g" ./example-3/frontend/src/config.js
-          sed -i "s|http://localhost:8001|http://order-service-w09-aks:8001|g" ./example-3/frontend/src/config.js
+          sed -i "s|http://localhost:8000|http://product-service-w09-aks:8000|g" ./example-3/frontend/main.js
+          sed -i "s|http://localhost:8001|http://order-service-w09-aks:8001|g" ./example-3/frontend/main.js
 
 
       - name: Build and Push Backend Images
