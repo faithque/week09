@@ -48,8 +48,11 @@ jobs:
           az aks get-credentials \
             --resource-group ${{ secrets.RESOURCE_GROUP }} \
             --name ${{ secrets.AKS_CLUSTER }} 
+            
+      - name: Replace ACR name in manifests
+        run: |
+          sed -i "s|AZURE_CONTAINER_REGISTRY|${{ secrets.ACR_NAME }}.azurecr.io|g" ./example-3/k8s/*.yaml
 
       - name: Deploy to AKS
-        run: |
-          
+        run: |          
           kubectl apply -f ./example-3/k8s
